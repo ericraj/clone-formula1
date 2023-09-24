@@ -1,9 +1,10 @@
-import { Header } from "~/components/Header";
+import { Header, HeaderMobile } from "~/components/Header";
 
 const Home = () => {
   return (
     <>
-      <Header />
+      <HeaderMobile className="lg:hidden" />
+      <Header className="hidden lg:flex" />
     </>
   );
 };

@@ -1,14 +1,24 @@
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
+import { FC } from "react";
+import { PropsWithClassName } from "~/types";
+import { clsx } from "~/utils";
+import { HeaderActions } from "./HeaderActions";
+import { HeaderF2F3Nav } from "./HeaderF2F3Nav";
+import { HeaderGlobalLinks } from "./HeaderGlobalLinks";
+import { HeaderPrimaryNav } from "./HeaderPrimaryNav";
+import { HeaderSeparator } from "./HeaderSeparator";
 
-export const Header = () => {
+export interface HeaderProps extends PropsWithClassName {}
+
+export const Header: FC<HeaderProps> = ({ className = "" }) => {
   return (
-    <header className="relative w-full">
+    <header className={clsx("Header relative flex w-full flex-col", className)}>
       <div className="flex w-full flex-col">
-        <div className="min-h-50 text-f1-text mx-auto flex w-full bg-white text-xs">
-          <div className="max-w-page mx-auto flex w-full items-center justify-between gap-x-5 py-3">
-            <div className="flex items-center font-bold">
-              <Link href="">
+        <div className="mx-auto flex h-12 w-full bg-white px-2 text-xs text-f1-text 2xl:px-0">
+          <div className="mx-auto flex w-full max-w-page items-center justify-between gap-x-5 py-3">
+            <div className="flex items-center">
+              <NextLink href="" className="Logo mr-5">
                 <Image
                   src="https://www.formula1.com/etc/designs/fom-website/images/fia_logo.png"
                   alt="Federation Internationale de l'Automobile"
@@ -16,25 +26,32 @@ export const Header = () => {
                   height={25}
                   className="opacity-40"
                 />
-              </Link>
+              </NextLink>
+              <HeaderSeparator />
+              <HeaderF2F3Nav />
             </div>
-            <div className="flex items-center font-semibold">
-              <div className="Links flex items-center gap-x-3">
-                <Link
-                  href=""
-                  className="hover:text-f1-red hover:border-b-f1-red border-b-2 border-white pb-[6px] uppercase transition-colors"
-                >
-                  Authentics
-                </Link>
-                <Link href="" className="uppercase">
-                  Store
-                </Link>
+            <div className="flex items-center">
+              <HeaderGlobalLinks />
+              <div className="mx-4 flex items-center gap-x-4">
+                <HeaderSeparator />
+                <NextLink href="">
+                  <Image
+                    src="https://www.formula1.com/etc/designs/fom-website/images/f1-tv-logo.svg"
+                    alt="F1 TV Logo"
+                    width={72}
+                    height={12}
+                  />
+                </NextLink>
+                <HeaderSeparator />
               </div>
+              <HeaderActions />
             </div>
           </div>
         </div>
-        <div className="bg-f1-red min-h-70 mx-auto w-full text-white">
-          <div className="max-w-page min-h-70 mx-auto flex w-full items-center">Aze</div>
+        <div className="mx-auto flex h-[70px] min-h-70 w-full items-center bg-f1-red px-2 text-white 2xl:px-0">
+          <div className="mx-auto flex h-full w-full max-w-page items-center">
+            <HeaderPrimaryNav />
+          </div>
         </div>
       </div>
     </header>
