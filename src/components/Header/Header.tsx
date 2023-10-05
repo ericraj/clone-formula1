@@ -1,6 +1,7 @@
 import Image from "next/image";
 import NextLink from "next/link";
 import { FC } from "react";
+import { F1_IMG_BASE_URL } from "~/constants";
 import { PropsWithClassName } from "~/types";
 import { clsx } from "~/utils";
 import { HeaderActions } from "./HeaderActions";
@@ -20,7 +21,7 @@ export const Header: FC<HeaderProps> = ({ className = "" }) => {
             <div className="flex items-center">
               <NextLink href="" className="Logo mr-5">
                 <Image
-                  src="https://www.formula1.com/etc/designs/fom-website/images/fia_logo.png"
+                  src={`${F1_IMG_BASE_URL}/fia_logo.png`}
                   alt="Federation Internationale de l'Automobile"
                   width={37}
                   height={25}
@@ -36,10 +37,11 @@ export const Header: FC<HeaderProps> = ({ className = "" }) => {
                 <HeaderSeparator />
                 <NextLink href="">
                   <Image
-                    src="https://www.formula1.com/etc/designs/fom-website/images/f1-tv-logo.svg"
+                    src={`${F1_IMG_BASE_URL}/f1-tv-logo.svg`}
                     alt="F1 TV Logo"
-                    width={72}
-                    height={12}
+                    width={0}
+                    height={0}
+                    className="h-3 w-[72px]"
                   />
                 </NextLink>
                 <HeaderSeparator />

@@ -4,5 +4,6 @@ export * from "./HeaderF2F3Nav";
 export * from "./HeaderGlobalLink";
 export * from "./HeaderGlobalLinks";
 export * from "./HeaderMobile";
+export * from "./HeaderMobileLinks";
 export * from "./HeaderPrimaryNav";
 export * from "./HeaderSeparator";

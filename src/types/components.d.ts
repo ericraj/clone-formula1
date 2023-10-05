@@ -1,5 +1,10 @@
 export interface Link {
   label: string;
+  type?: "text" | "img";
+  imgSrc?: string;
+  imgWidth?: number;
+  imgHeight?: number;
+  animationDelayIndex?: number;
 }
 
 export interface LinkProps extends Link {

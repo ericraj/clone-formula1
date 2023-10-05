@@ -11,7 +11,9 @@ const config: Config = {
       colors: {
         "f1-text": "#15151e",
         "f1-red": "#e10600",
+        "f1-red-light": "#f08380",
         "f1-black": "#1f1f27",
+        "f1-black-light": "#38383f",
         "f1-gray": "#949498",
         "f1-gray-light": "#d0d0d2"
       },
@@ -27,10 +29,12 @@ const config: Config = {
         70: "4.375rem"
       },
       spacing: {
-        1.1: "0.3125rem"
+        1.1: "0.3125rem",
+        3.6: "0.9375rem"
       },
       borderRadius: {
-        5: "0.3125rem"
+        5: "0.3125rem",
+        10: "0.625rem"
       }
     }
   },

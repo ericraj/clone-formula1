@@ -8,7 +8,7 @@ export const Button: FC<ButtonProps> = ({ children, className = "" }) => {
   return (
     <button
       className={clsx(
-        "rounded-5 flex h-9 items-center justify-center gap-x-1 px-3 text-xs font-semibold uppercase",
+        "flex h-9 items-center justify-center gap-x-1 rounded-5 px-3 text-xs font-semibold uppercase",
         className
       )}
     >

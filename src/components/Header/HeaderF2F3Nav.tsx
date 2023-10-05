@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import React from "react";
 import { LinkProps } from "~/types";
 import { clsx } from "~/utils";
 
@@ -11,31 +12,32 @@ const links: LinkProps[] = [
 
 export const HeaderF2F3Nav = () => {
   return (
-    <div className="relative flex items-center gap-x-3 pl-4 xl:gap-x-5">
-      {links.map(({ label, sup, isActive }, index) => (
-        <NextLink
-          key={label}
-          href=""
-          className={clsx(
-            "transition-colors hover:text-f1-black",
-            isActive ? "text-f1-black" : "text-f1-gray"
-          )}
-        >
-          <span className="font-f1 font-bold">
-            {index === links.length - 1 ? (
-              <>
-                {label.split(" ")[0]}
-                <sup>{sup}</sup> {label.split(" ")[1]}
-              </>
-            ) : (
-              <>
-                {label}
-                <sup>{sup}</sup>
-              </>
+    <div className="HeaderF2F3Nav relative flex items-center gap-x-3 pl-4 xl:gap-x-5">
+      {React.Children.toArray(
+        links.map(({ label, sup, isActive }, index) => (
+          <NextLink
+            href=""
+            className={clsx(
+              "transition-colors hover:text-f1-black",
+              isActive ? "text-f1-black" : "text-f1-gray"
             )}
-          </span>
-        </NextLink>
-      ))}
+          >
+            <span className="font-f1 font-bold">
+              {index === links.length - 1 ? (
+                <>
+                  {label.split(" ")[0]}
+                  <sup>{sup}</sup> {label.split(" ")[1]}
+                </>
+              ) : (
+                <>
+                  {label}
+                  <sup>{sup}</sup>
+                </>
+              )}
+            </span>
+          </NextLink>
+        ))
+      )}
     </div>
   );
 };
